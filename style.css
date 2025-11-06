@@ -14,7 +14,8 @@ body {
   color: #3a3a3a;
   text-align: center;
   overflow-x: hidden;
-  width: 
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  width: auto;
 }
 .welcome-screen {
   position: fixed;
@@ -472,7 +473,7 @@ animation: fadeIn 1.2s ease-in-out;
   padding: 25px;
   border-radius: 18px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 300px;
+  width: 350px;
   border: 1px solid #e8dfd3;
 }
 
@@ -542,7 +543,57 @@ animation: fadeIn 1.2s ease-in-out;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 480px) {
+  .lokasi {
+    padding: 40px 15px;
+  }
 
+  .container {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+  }
+
+  .container h2 {
+    font-size: 1.5em;
+  }
+
+  .container p {
+    font-size: 0.95em;
+  }
+
+  .lokasi h2 {
+    font-size: 24px;
+  }
+
+  .lokasi p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .lokasi iframe {
+    width: 100%;
+    height: 220px;
+  }
+
+  .map-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95em;
+  }
+}
+
+/* RESPONSIVE UNTUK TABLET */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+
+  .lokasi iframe {
+    width: 90%;
+    height: 250px;
+  }
+}
 /* ===================================== */
 /* INVITATION CONTAINER */
 /* ===================================== */
@@ -591,15 +642,19 @@ animation: fadeIn 1.2s ease-in-out;
 /* ===================================== */
 /* DEKORASI */
 /* ===================================== */
+/* ===================================== */
+/* DEKORASI ATAS UNDANGAN */
+/* ===================================== */
 .decoration.top {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  pointer-events: none;
+  pointer-events: none; /* agar tidak mengganggu interaksi */
   z-index: 2;
 }
 
+/* Dekorasi kiri & kanan */
 .decor-left,
 .decor-right {
   position: absolute;
@@ -613,16 +668,19 @@ animation: fadeIn 1.2s ease-in-out;
   animation: float 6s ease-in-out infinite;
 }
 
+/* Posisi dekorasi kiri */
 .decor-left {
   left: 0;
   animation-delay: 0s;
 }
 
+/* Posisi dekorasi kanan */
 .decor-right {
   right: 0;
   animation-delay: 3s;
 }
 
+/* Efek melayang lembut */
 @keyframes float {
   0% {
     transform: translateY(0) scale(1);
@@ -637,6 +695,7 @@ animation: fadeIn 1.2s ease-in-out;
     opacity: 0.95;
   }
 }
+
 
 /* ===================================== */
 /* CONTENT ANIMATION (SOFT FLOAT) */
@@ -847,5 +906,10 @@ animation: fadeIn 1.2s ease-in-out;
 
   .countdown div span {
     font-size: 1.2rem;
+  }
+  .decor-left,
+  .decor-right {
+    width: 80px;
+    margin: -20px;
   }
 }
