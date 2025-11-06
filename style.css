@@ -544,45 +544,7 @@ animation: fadeIn 1.2s ease-in-out;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 480px) {
-  .lokasi {
-    padding: 40px 15px;
-  }
 
-  .container {
-    width: 100%;
-    max-width: 270px;
-    padding: 20px;
-  }
-
-  .container h2 {
-    font-size: 1.5em;
-  }
-
-  .container p {
-    font-size: 0.95em;
-  }
-
-  .lokasi h2 {
-    font-size: 24px;
-  }
-
-  .lokasi p {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  .lokasi iframe {
-    width: 100%;
-    height: 220px;
-  }
-
-  .map-button {
-    width: 50%;
-    padding: 10px;
-    font-size: 0.95em;
-  }
-}
 
 /* RESPONSIVE UNTUK TABLET */
 @media (min-width: 481px) and (max-width: 768px) {
@@ -925,9 +887,46 @@ position: absolute;
 width: 145%;  /* lebih besar dari foto */
 height: 150%;
 top: -23%;    /* geser agar berada di luar foto */
-left: -20%;
+left: -23%;
 
 z-index: 0;   /* berada di belakang foto */
 
 }
+.lokasi {
+    padding: 40px 15px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 270px;
+    padding: 20px;
+  }
+
+  .container h2 {
+    font-size: 1.5em;
+  }
+
+  .container p {
+    font-size: 0.95em;
+  }
+
+  .lokasi h2 {
+    font-size: 24px;
+  }
+
+  .lokasi p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .lokasi iframe {
+    width: 100%;
+    height: 220px;
+  }
+
+  .map-button {
+    width: 50%;
+    padding: 10px;
+    font-size: 0.95em;
+  }
 }
