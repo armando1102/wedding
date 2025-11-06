@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of Paulus & Jerni</title>
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&family=Montserrat:wght@500&display=swap"
+    rel="stylesheet">
+
+  <!-- Style eksternal -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Override kecil: sembunyikan scroll sampai undangan dibuka -->
+  <style>
+    /* memastikan pengunjung tidak bisa scroll sebelum klik Buka Undangan */
+    body {
+      overflow: hidden;
+    }
+
+    /* styling tombol cepat bila belum ada di style.css */
+    #openInvitation {
+      background-color: #c5a26e;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    #openInvitation:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    /* popup foto */
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Halaman Pembuka -->
+  <div class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-content">
+      <div class="decoration top">
+        <img src="image/bu1.png" alt="Dekorasi Kiri Atas" class="decor-left" />
+        <img src="image/bu1.png" alt="Dekorasi Kanan Atas" class="decor-right" />
+      </div>
+      <h1 class="fade-scroll">Selamat Datang</h1>
+      <p class="atas fade-scroll">Undangan Pernikahan kami</p>
+      <div class="hero-photo fade-scroll">
+        <img src="image/utama.jpeg" alt="Foto pasangan" class="pasangan">
+        <img src="image/h1.png" alt="" class="hiasan">
+      </div>
+      <h2>Paulus & Jerni</h2>
+      <p>Kepada Yth.</p>
+      <p><span id="guestName" class="nama-tamu">Tamu Terhormat</span></p>
+
+      <button id="openInvitation">
+        <i class="bi bi-envelope-heart"></i>
+        Buka Undangan
+      </button>
+    </div>
+  </div>
+
+  <!-- Konten Undangan -->
+  <div class="invitation-container" id="invitationContainer" style="display: none;">
+    <div class="decoration top">
+      <img src="image/bu1.png" alt="Dekorasi Kiri Atas" class="decor-left" />
+      <img src="image/bu1.png" alt="Dekorasi Kanan Atas" class="decor-right" />
+    </div>
+    <div class="judul fade-scroll">
+      <p class="to">WELCOME TO</p>
+      <p class="the">THE WEDDING</p>
+    </div>
+    <div class="hero-photo fade-scroll">
+      <img src="image/utama.jpeg" alt="Foto pasangan" class="pasangan">
+      <img src="image/h1.png" alt="" class="hiasan">
+    </div>
+    <p class="name1 fade-scroll"><strong>Paulus Panunggul Yudho Widodo Purba</strong></p>
+    <p class="name2 fade-scroll"><strong>&</strong></p>
+    <p class="name3 fade-scroll"><strong>Jerni Yana Sitorus</strong></p>
+
+    <div class="content">
+      <p class="quote fade-scroll">“Ketika dua hati menjadi satu, kita merayakan cinta dan kebersamaan.”</p>
+      <div class="countdown fade-scroll">
+        <div><span id="days">00</span><small>Hari</small></div>
+        <div><span id="hours">00</span><small>Jam</small></div>
+        <div><span id="minutes">00</span><small>Menit</small></div>
+        <div><span id="seconds">00</span><small>Detik</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section acara, form, gift, galeri, penutup (tetap seperti struktur kamu) -->
+  <section class="home" id="acara">
+    <div class="decoration top fade-scroll">
+      <img src="image/bu1.png" alt="Dekorasi Kiri Atas" class="decor-left fade-scroll" />
+      <img src="image/bu1.png" alt="Dekorasi Kanan Atas" class="decor-right fade-scroll" />
+    </div>
+    <div class="acara fade-scroll">
+      <h2 class="fade-scroll">Selamat Datang di Pernikahan Kami</h2>
+      <p class="fade-scroll">Atas Berkah dan Rahmat Tuhan Yang Maha Esa. Tanpa mengurangi rasa hormat. Kami mengundang
+        Bapak/Ibu/Saudara/i
+        serta kerabat sekalian untuk menghadiri acara pernikahan kami</p>
+    </div>
+    <div class="lokasi fade-scroll">
+      <div class="container fade-scroll">
+        <h2 class="fade-scroll">Pemberkatan</h2>
+        <h1 class="fade-scroll">Sabtu, 6 Desember 2025</h1>
+        <p class="waktu fade-scroll">Pukul: 11.00 WIB</p>
+        <p class="alamat fade-scroll">Gereja Paroki Santo Agustinus Sei Rampah</p>
+        <div class="map-container fade-scroll">
+          <a href="https://www.google.com/maps?q=Gereja+Paroki+Santo+Agustinus+Sei+Rampah&ll=3.4969417509182184,99.11857307403407&z=15"
+            target="_blank" class="map-button fade-scroll">Buka Lokasi</a>
+        </div>
+      </div>
+
+      <div class="container fade-scroll">
+        <h2 class="fade-scroll">Pesta Adat</h2>
+        <h1 class="fade-scroll">Sabtu, 6 Desember 2025</h1>
+        <p class="waktu fade-scroll">Pukul: 12.30 WIB</p>
+        <p class="alamat fade-scroll">HKI Resort Kampung Pon</p>
+        <div class="map-container fade-scroll">
+          <a href="https://maps.app.goo.gl/gWfySFYcRRajFX2v7" target="_blank" class="map-button fade-scroll">Buka
+            Lokasi</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian Kehadiran -->
+    <div class="kehadiran" id="kehadiran">
+      <h2 class="fade-scroll">Konfirmasi Kehadiran</h2>
+      <p class="fade-scroll">Mohon konfirmasi kehadiran Anda pada acara kami</p>
+
+      <form id="my-form" method="POST"
+        action="https://script.google.com/macros/s/AKfycbzEVKbXdWw1MXp6UQOkjTn35vU5EeWLyVcMtHEop4X0aQ3XUjaSAoQMUsInLAthjqxW/exec"
+        class="form-kehadiran fade-scroll">
+        <div class="form-group fade-scroll">
+          <label for="namaForm" class="fade-scroll">Nama Lengkap</label>
+          <input type="text" id="namaForm" name="nama" placeholder="Masukkan nama Anda" class="fade-scroll" required>
+        </div>
+
+        <div class="form-group fade-scroll">
+          <label for="status" class="fade-scroll">Apakah Anda akan hadir?</label>
+          <select id="status" name="status" class="fade-scroll" required>
+            <option value="" class="fade-scroll">-- Pilih Kehadiran --</option>
+            <option value="hadir" class="fade-scroll">Ya, Saya akan hadir</option>
+            <option value="tidak" class="fade-scroll">Maaf, Saya tidak bisa hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group fade-scroll">
+          <label for="pesan" class="fade-scroll">Ucapan atau Doa</label>
+          <textarea id="pesan" name="pesan" rows="3" class="fade-scroll"
+            placeholder="Tulis ucapan Anda di sini..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-kirim fade-scroll">Kirim</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Gift -->
+  <section class="background-card" id="gift">
+    <div class="decoration top">
+      <img src="image/bu1.png" alt="Dekorasi Kiri Atas" class="decor-left" />
+      <img src="image/bu1.png" alt="Dekorasi Kanan Atas" class="decor-right" />
+    </div>
+    <div class="gift-text fade-scroll">
+      <h2><i class="bi bi-gift-heart fade-scroll"></i> Tanda Kasih</h2>
+      <p class="fade-scroll">
+        Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih,
+        kami menyediakan rekening berikut sebagai ungkapan cinta dan doa restu untuk perjalanan baru kami.
+      </p>
+    </div>
+    <div class="gift-card gift-mandiri fade-scroll">
+      <button onclick="copyText('1600004460172')" class="fade-scroll">Copy</button>
+    </div>
+    <p class="nama-card fade-scroll">1600004460172</p>
+    <p class="nama-card fade-scroll">Paulus Panunggul Yudho Widodo Purba</p>
+  </section>
+
+  <!-- Galeri -->
+  <section class="background-galeri" id="galeri">
+    <h1 class="fade-scroll">Galeri Foto</h1>
+    <div class="galeri">
+      <div class="foto fade-scroll"><img src="image/1.jpeg" alt="Foto 1" onclick="openFull(this)"></div>
+      <div class="foto fade-scroll"><img src="image/2.jpeg" alt="Foto 2" onclick="openFull(this)"></div>
+      <div class="foto fade-scroll"><img src="image/3.jpeg" alt="Foto 3" onclick="openFull(this)"></div>
+      <div class="foto fade-scroll"><img src="image/4.jpeg" alt="Foto 4" onclick="openFull(this)"></div>
+      <div class="foto fade-scroll"><img src="image/5.jpeg" alt="Foto 5" onclick="openFull(this)"></div>
+    </div>
+    <div id="popupFoto" class="popup" role="dialog" aria-hidden="true">
+      <span class="close-btn" onclick="closeFull()" aria-label="Tutup">&times;</span>
+      <img id="popupImg" src="" alt="Preview Foto">
+    </div>
+  </section>
+
+  <!-- Penutup -->
+  <div class="penutup">
+    <div class="hero-photo fade-scroll">
+      <img src="image/utama.jpeg" alt="Foto pasangan" class="pasangan">
+      <img src="image/h1.png" alt="" class="hiasan">
+    </div>
+    <div class="penutup-inner">
+      <p class="fade-scroll text">
+        Puji syukur kami panjatkan kepada Tuhan atas kasih dan penyertaan-Nya sehingga hari yang penuh cinta ini dapat
+        terlaksana.
+        Kami mohon doa agar pernikahan ini selalu dipenuhi dengan berkat, kesetiaan, dan kasih Tuhan yang tiada
+        berkesudahan.
+      </p>
+      <p class="thanks fade-scroll">Terima kasih atas kehadiran dan doa restu Bapak/Ibu/Saudara/i.</p>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar" style="display:none;">
+    <a href="#invitationContainer"><i class="bi bi-house-fill"></i></a>
+    <a href="#acara"><i class="bi bi-calendar-heart"></i></a>
+    <a href="#gift"><i class="bi bi-gift"></i></a>
+    <a href="#galeri"><i class="bi bi-images"></i></a>
+    <a href="#" id="musicToggle"><i class="bi bi-music-note-beamed"></i></a>
+  </nav>
+
+  <!-- Musik -->
+  <audio id="weddingMusic" loop>
+    <source src="music/JERNI - Lightyspirit.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- SCRIPTS: Semua dijalankan setelah DOM siap -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Elemen penting
+      const welcomeScreen = document.getElementById('welcomeScreen');
+      const invitationContainer = document.getElementById('invitationContainer');
+      const openBtn = document.getElementById('openInvitation');
+      const navbar = document.getElementById('navbar');
+
+      // Musik
+      const music = document.getElementById('weddingMusic');
+      const musicBtn = document.getElementById('musicToggle');
+      const musicIcon = musicBtn ? musicBtn.querySelector('i') : null;
+      let isPlaying = false;
+
+      // Baca parameter URL ?nama=...
+      function getQueryParam(key) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(key);
+      }
+      const namaParam = getQueryParam('nama'); // pakai 'nama' konsisten dgn bahasa Indonesia
+      if (namaParam) {
+        const decodeNama = decodeURIComponent(namaParam.replace(/\+/g, ' '));
+        const guestNameEl = document.getElementById('guestName');
+        if (guestNameEl) guestNameEl.textContent = decodeNama;
+        // juga isi field form (opsional)
+        const namaFormInput = document.getElementById('namaForm');
+        if (namaFormInput) namaFormInput.value = decodeNama;
+      }
+
+      // Tombol buka undangan
+      openBtn.addEventListener('click', async function () {
+        // sembunyikan welcome, tampilkan invitation
+        welcomeScreen.style.display = 'none';
+        invitationContainer.style.display = 'block';
+        invitationContainer.classList.add('show-invitation');
+        document.body.style.overflow = 'auto';
+        navbar.style.display = 'flex';
+
+        // coba mainkan musik (user gesture)
+        try {
+          await music.play();
+          isPlaying = true;
+          if (musicIcon) {
+            musicIcon.classList.remove('bi-music-note-beamed');
+            musicIcon.classList.add('bi-pause-circle');
+          }
+        } catch (err) {
+          // kalau autoplay diblokir, biarkan tanpa error
+          console.warn('Music play failed:', err);
+        }
+      });
+
+      // Toggle musik dari navbar
+      if (musicBtn) {
+        musicBtn.addEventListener('click', async function (e) {
+          e.preventDefault();
+          if (!isPlaying) {
+            try {
+              await music.play();
+              isPlaying = true;
+              musicBtn.classList.add('playing');
+              if (musicIcon) { musicIcon.classList.remove('bi-music-note-beamed'); musicIcon.classList.add('bi-pause-circle'); }
+            } catch (err) {
+              console.warn('Music play failed:', err);
+            }
+          } else {
+            music.pause();
+            isPlaying = false;
+            musicBtn.classList.remove('playing');
+            if (musicIcon) { musicIcon.classList.remove('bi-pause-circle'); musicIcon.classList.add('bi-music-note-beamed'); }
+          }
+        });
+      }
+
+      // Form submit (Google Apps Script)
+      const form = document.getElementById('my-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = form.action;
+          fetch(action, {
+            method: 'POST',
+            body: data
+          })
+            .then(() => {
+              alert('Konfirmasi berhasil dikirim. Terima kasih!');
+              form.reset();
+            })
+            .catch(err => {
+              console.error(err);
+              alert('Terjadi kesalahan. Silakan coba lagi.');
+            });
+        });
+      }
+
+      // Fade on scroll
+      const fadeElements = document.querySelectorAll('.fade-scroll');
+      function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85;
+        fadeElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < triggerBottom) el.classList.add('active'); else el.classList.remove('active');
+        });
+      }
+      window.addEventListener('scroll', checkScroll);
+      checkScroll();
+
+      // Countdown ke 6 Desember 2025 pukul 11:00 WIB
+      const targetDate = new Date('Dec 06, 2025 11:00:00 GMT+0700').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          document.getElementById('days').textContent = '00';
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+          clearInterval(countdownInterval);
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      const countdownInterval = setInterval(updateCountdown, 1000);
+      updateCountdown(); // panggil sekali saat load
+
+      // Gallery popup
+      window.openFull = function (img) {
+        const popup = document.getElementById('popupFoto');
+        const popupImg = document.getElementById('popupImg');
+        popupImg.src = img.src;
+        popup.style.display = 'flex';
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+      window.closeFull = function () {
+        const popup = document.getElementById('popupFoto');
+        popup.style.display = 'none';
+        popup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
+      };
+
+      // Copy rekening
+      window.copyText = function (text) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Nomor rekening berhasil disalin!');
+        }).catch(err => {
+          console.error(err);
+          alert('Gagal menyalin. Silakan salin manual: ' + text);
+        });
+      };
+
+    }); // end DOMContentLoaded
+  </script>
+</body>
+
+</html>

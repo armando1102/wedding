@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+/* ===================================== */
+/* RESET & BODY STYLE */
+/* ===================================== */
+* {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #3a3a3a;
+  text-align: center;
+  overflow-x: hidden;
+  width: 
+}
+.welcome-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* pusatkan elemen */
+  width: 450px;
+  height: 100vh;
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+  color: #4e3d33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-content p {
+  color: #6b5549;
+  animation: fadeIn 2s ease-in;
+}
+.welcome-content .atas {
+  margin: 20px ;
+  color: #6b5549;
+  animation: fadeIn 2s ease-in;
+}
+
+.welcome-content h2 {
+  margin: 20px 0 20px 0;
+  animation: fadeIn 2s ease-in;
+}
+
+.welcome-content button {
+  padding: 10px 25px;
+  background: #6b5549;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+  animation: fadeIn 2s ease-in;
+}
+
+.welcome-content button:hover {
+  background: #8a6d5c;
+}
+
+/* Halaman utama (disembunyikan dulu) */
+.invitation-container {
+  display: none;
+  padding-bottom: 50px;
+}
+
+/* Saat aktif (setelah tombol diklik) */
+.show-invitation {
+  display: block;
+}
+
+/* ===================================== */
+/* FADE SCROLL ANIMATION */
+/* ===================================== */
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fade-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================================== */
+/* CONTENT */
+/* ===================================== */
+.content {
+  padding: 10px auto;
+  margin: auto;
+  animation: slideUp 1.5s ease-out;
+}
+
+/* ===================================== */
+/* TEXT & HEADING */
+/* ===================================== */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px;
+  margin: 10px 0;
+  color: #473e36ff;
+  animation: fadeIn 2s ease-in;
+}
+
+.subheading,
+.quote,
+.details p {
+  opacity: 0;
+  animation: fadeInText 1.5s ease forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================== */
+/* HERO PHOTO */
+/* ===================================== */
+.hero-photo {
+width: 190px;
+height: 190px;
+margin: auto;
+position: relative;
+z-index: 1;
+border-radius: 50%;
+overflow: visible; /* ganti agar hiasan bisa keluar */
+border: 6px solid #f8f1ea;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+animation: zoomIn 1.8s ease-in-out;
+}
+
+/* Foto pasangan utama */
+.hero-photo img.pasangan {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 50%;
+display: block;
+}
+
+/* Hiasan dekoratif di luar */
+.hero-photo img.hiasan {
+position: absolute;
+width: 145%;  /* lebih besar dari foto */
+height: 150%;
+top: -23%;    /* geser agar berada di luar foto */
+left: -25%;
+pointer-events: none;
+z-index: 0;   /* berada di belakang foto */
+object-fit: contain;
+animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===================================== */
+/* COUNTDOWN */
+/* ===================================== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.countdown div {
+  background-color: #473e36ff;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 12px 8px;
+  width: 60px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.countdown div:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================== */
+/* BUTTON ANIMATION */
+/* ===================================== */
+
+
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ===================================== */
+/* NAVBAR */
+/* ===================================== */
+.navbar {
+  display: none;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  width: 90%;
+  max-width: 350px;
+  margin: auto;
+  background: rgba(145, 123, 104, 0.9);
+  padding: 5px 0;
+  border-radius: 30px;
+  z-index: 999;
+}
+
+.navbar a {
+  color: white;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #f5e8dd;
+  transform: scale(1.2);
+}
+
+/* ===================================== */
+/* TITLE SECTION */
+/* ===================================== */
+.to {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 30px 0 0 auto;
+  color: #473e36ff;
+  animation: fadeIn 2s ease-in;
+}
+
+.the {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+  color: #473e36ff;
+  animation: fadeInText 2s ease;
+}
+
+.name1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 30px 0 0 0;
+  color: #473e36ff;
+  animation: zoomIn 2s ease-in-out;
+}
+.name2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 5px 0 0 0;
+  color: #473e36ff;
+  animation: zoomIn 2s ease-in-out;
+}
+.name3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 2px 0 0 0;
+  color: #473e36ff;
+  animation: zoomIn 2s ease-in-out;
+}
+
+/* ===================================== */
+/* HOME SECTION */
+/* ===================================== */
+.home {
+  max-width: 430px;
+  margin: auto;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+}
+
+/* ===================================== */
+/* GALERI FOTO */
+/* ===================================== */
+.background-galeri {
+  background-color: #F5DEB3;
+  max-width: 430px;
+  margin: auto;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  text-align: center;
+  padding: 40px 0;
+}
+.galeri {
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  padding: 10px 0;
+  margin: 30px auto;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+
+.galeri .foto {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 150px;
+  height: 130px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galeri .foto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.galeri .foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.05) contrast(1.05) saturate(1.1);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.galeri .foto:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.popup img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Tombol Close (X) */
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: Arial, sans-serif;
+}
+.close-btn:hover {
+  color: #f1c40f;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+/* ===================================== */
+/* ACARA SECTION */
+/* ===================================== */
+.acara {
+  max-width: 440px;
+  margin: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+}
+
+.acara h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #473e36ff;
+  margin: 55px 0 0 0;
+  padding: 20px;
+}
+
+.acara p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #473e36ff;
+  margin: 20px 20px 0 20px;
+}
+
+.acara img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #d6bfa3;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================== */
+/* LOKASI SECTION */
+/* ===================================== */
+.lokasi {
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+.container {
+  background: #ffffff;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  border: 1px solid #e8dfd3;
+}
+
+.container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  color: #8b5e3c; /* warna gold coffee */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.container p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.container .alamat {
+  font-style: italic;
+  color: #6b5c4b;
+}
+
+.container .waktu {
+  font-weight: 500;
+  color: #8b5e3c;
+}
+
+.map-container {
+  margin-top: 20px;
+}
+
+.map-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #c7a17a, #a7744c);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(167, 116, 76, 0.3);
+  transition: all 0.3s ease;
+}
+
+.map-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a7744c, #c7a17a);
+}
+.lokasi h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.lokasi p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #473e36ff;
+  margin-bottom: 20px;
+}
+
+.lokasi iframe {
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================== */
+/* INVITATION CONTAINER */
+/* ===================================== */
+.invitation-container {
+  position: relative;
+  max-width: 430px;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.penutup {
+  position: relative;
+  max-width: 430px;
+  margin: auto;
+  padding: 30px 0 0 0;
+  text-align: center;
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  height: auto;
+}
+.penutup-inner {
+  /* width: 90%; */
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.penutup-inner .thanks {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.penutup-inner .text {
+  margin: 30px 10px;
+}
+
+
+/* ===================================== */
+/* DEKORASI */
+/* ===================================== */
+.decoration.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.decor-left,
+.decor-right {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: auto;
+  margin: -40px;
+  filter: drop-shadow(0 0 8px rgba(53, 48, 48, 0.6));
+  opacity: 0.9;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decor-left {
+  left: 0;
+  animation-delay: 0s;
+}
+
+.decor-right {
+  right: 0;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(10px) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.95;
+  }
+}
+
+/* ===================================== */
+/* CONTENT ANIMATION (SOFT FLOAT) */
+/* ===================================== */
+.content-animate {
+  position: relative;
+  z-index: 3;
+  animation: softFloat 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+}
+
+@keyframes softFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.content-animate::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  z-index: -1;
+  opacity: 0.7;
+}
+.kehadiran {
+  background: #f8f5f0;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  width: 70%;
+  max-width: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.kehadiran h2 {
+  font-family: 'Playfair Display', serif;
+  color: #6a4e3b;
+  margin-bottom: 10px;
+}
+
+.kehadiran p {
+  font-family: 'Poppins', sans-serif;
+  color: #7c6a58;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5a4633;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #d3c2b3;
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-kirim {
+  background: #c49a6c;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-kirim:hover {
+  background: #b28354;
+  margin: 30px;
+}
+
+.background-card {
+  position: relative;
+  max-width: 430px;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, #e8f0e4, #faf8f3, #f5ede6);
+  height: auto;
+
+  /* Tambahan untuk menempatkan gift card ke tengah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nama-card {
+  text-align: left;
+  color: black;
+}
+.gift-text h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #b47b57;
+  font-size: 2rem;
+  margin: 20px 10px;
+}
+
+.gift-text p {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 auto 25px;
+  width: 90%;
+}
+.gift-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 65%;         /* biar responsif dan tidak terpotong */
+  max-width: 400px;   /* batas maksimum */
+  height: 200px;      /* tinggi proporsional kartu */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+   margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 15px;
+      color: #fff;
+      position: relative;
+}
+.gift-card p {
+      margin: 5px 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+  .gift-card button {
+      margin-top: 8px;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #333;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gift-card button:hover {
+      background: #333;
+      color: #fff;
+    }
+.gift-mandiri {
+      background-image: url('image/mandiri.png');
+    }
+
+
+@media (max-width: 768px) {
+  .invitation-container {
+    height: 100vh; /* tetap 1 layar di HP */
+    background: linear-gradient(to bottom, #e8f0e4, #faf8f3, #f5ede6);
+    padding: 10px;
+  }
+
+  .judul p {
+    font-size: 1.3rem;
+  }
+
+  .hero-photo img.pasangan {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .name1, .name2, .name3 {
+    font-size: 1rem;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+    margin: 10px;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.8rem;
+  }
+
+  .countdown div span {
+    font-size: 1.2rem;
+  }
+}
