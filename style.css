@@ -925,7 +925,7 @@ position: absolute;
 width: 145%;  /* lebih besar dari foto */
 height: 150%;
 top: -23%;    /* geser agar berada di luar foto */
-left: -25%;
+left: -20%;
 
 z-index: 0;   /* berada di belakang foto */
 
