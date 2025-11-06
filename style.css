@@ -157,6 +157,7 @@ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 animation: zoomIn 1.8s ease-in-out;
 }
 
+
 /* Foto pasangan utama */
 .hero-photo img.pasangan {
 width: 100%;
@@ -550,7 +551,7 @@ animation: fadeIn 1.2s ease-in-out;
 
   .container {
     width: 100%;
-    max-width: 320px;
+    max-width: 270px;
     padding: 20px;
   }
 
@@ -577,7 +578,7 @@ animation: fadeIn 1.2s ease-in-out;
   }
 
   .map-button {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     font-size: 0.95em;
   }
@@ -609,7 +610,6 @@ animation: fadeIn 1.2s ease-in-out;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 .penutup {
   position: relative;
@@ -912,4 +912,22 @@ animation: fadeIn 1.2s ease-in-out;
     width: 80px;
     margin: -20px;
   }
+
+  .hero-photo img.pasangan {
+width: 100%;
+height: 100%;
+
+}
+
+/* Hiasan dekoratif di luar */
+.hero-photo img.hiasan {
+position: absolute;
+width: 145%;  /* lebih besar dari foto */
+height: 150%;
+top: -23%;    /* geser agar berada di luar foto */
+left: -25%;
+
+z-index: 0;   /* berada di belakang foto */
+
+}
 }
